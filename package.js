@@ -16,7 +16,7 @@ Package.onUse(function(api) {
 });
 
 Package.on_test(function(api) {
-  api.use('mrt:flash-messages', 'client');
+  api.use('nirleka:flash-messages', 'client');
   api.use(['tinytest', 'test-helpers'], 'client');
 
   api.addFiles('messages_tests.js', 'client');

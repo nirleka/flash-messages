@@ -1,20 +1,52 @@
 <template name="flashMessages">
-  {{#each messages}} 
-    {{> flashMessageItem}}
-  {{/each}}
+    {{#each messages}} {{> flashMessageItem}} {{/each}}
 </template>
 
 <template name="flashMessageItem">
-  <div class="alert {{style}} alert-dismissable" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    {{# if group }}
-      <ul>
-        {{#each message}}
-          <li>{{{this}}}</li>
-        {{/each}}
-      </ul>
-    {{ else }}
-      {{{message}}}
-    {{/ if }}
-  </div> 
+    <div class="alert {{style}} alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{#if group }}
+        {{>flashIcon style=style group=group}}
+        <ul>
+            {{#each message}}
+            <li>
+                {{{this}}}
+            </li>
+            {{/each}}
+        </ul>
+        {{ else }}
+            {{>flashIcon style=this.style}}
+            {{{message}}}
+        {{/if }}
+    </div>
+</template>
+
+<template name="flashIcon">
+    {{#if alertEqual style 'alert-success'}}
+        <i class="material-icons left">check_circle</i>
+        {{#if group}}
+            <span class="title-text">Aksi sukses dilakukan</span>
+        {{/if}}
+    {{/if}}
+
+    {{#if alertEqual style 'alert-warning'}}
+        <i class="material-icons left">warning</i>
+        {{#if group}}
+            <span class="title-text">Peringatan</span>
+        {{/if}}
+    {{/if}}
+
+    {{#if alertEqual style 'alert-info'}}
+        <i class="material-icons left">info</i>
+        {{#if group}}
+            <span class="title-text">Informasi</span>
+        {{/if}}
+    {{/if}}
+
+    {{#if alertEqual style 'alert-error alert-danger'}}
+        <i class="material-icons left">error</i>
+        {{#if group}}
+            <span class="title-text">Pesan kesalahan</span>
+        {{/if}}
+    {{/if}}
 </template>

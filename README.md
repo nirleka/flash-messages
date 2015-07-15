@@ -6,6 +6,48 @@ Package for displaying flash messages to the user. This is based on the chapter 
 
 This package integrates well with [Bootstrap Alerts](http://getbootstrap.com/components/#alerts) styles, but Bootstrap is not a dependency.
 
+This package is modified to include materialize icon in alert message.
+Add this scss to your index.scc (after including file materialize scss) so that the alert will use materialize style
+
+```scss
+.alert {
+	color: white;
+	padding: 10px;
+	font-weight: 600;
+	.close {
+		float: right;
+		background-color: transparent;
+		border: none;
+	}
+	ul {
+		margin-top: 5px;
+		li {
+			list-style-type: square !important;
+			margin-left: 35px;
+		}
+	}
+}
+.alert-success {
+	@extend .green;
+	@extend .accent-4;
+}
+.alert-warning {
+	@extend .orange;
+	@extend .accent-4;
+}
+.alert-info {
+	@extend .light-blue;
+	@extend .accent-4;
+}
+.alert-error {
+	@extend .red;
+	@extend .darken-4;
+}
+.title-text {
+	font-size: 1.2rem;
+}
+```
+
 You can see a [demo](http://flash-messages-demo.meteor.com/) and their [source code](https://github.com/camilosw/flash-messages-demo).
 
 ## Note

@@ -48,6 +48,27 @@ Add this scss to your index.scc (after including file materialize scss) so that 
 }
 ```
 
+This package also adds block data which enables multiple flash message in one page.
+
+For example:
+In javascript file (helper, event, etc.)
+```javascript
+	FlashMessages.sendError(["error 1", "error 2", "error 3"], {block: '__testing__'});
+```
+That script will print flash message in template file with block data:
+```handlebars
+	{{> flashMessages block='__testing__'}}
+```
+
+without block:
+```javascript
+	FlashMessages.sendError(["error 1", "error 2", "error 3"]);
+```
+That script will print flash message in template file with block data:
+```handlebars
+	{{> flashMessages }}
+```
+
 You can see a [demo](http://flash-messages-demo.meteor.com/) and their [source code](https://github.com/camilosw/flash-messages-demo).
 
 ## Note

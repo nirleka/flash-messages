@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'mrt:flash-messages',
+  name: 'nirleka:flash-messages',
   summary: 'A package to display flash messages to the user',
   version: '1.0.1',
-  git: 'https://github.com/camilosw/flash-messages.git'
+  git: 'https://github.com/nirleka/flash-messages.git'
 });
 
 Package.onUse(function(api) {

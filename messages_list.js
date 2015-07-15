@@ -1,10 +1,15 @@
 Template.flashMessages.helpers({
-    messages: function() {
+    messages: function(block) {
         if (flashMessages.find().count() && FlashMessages.options.autoScroll)
             $('html, body').animate({
                 scrollTop: 0
             }, 200);
-        var messages = flashMessages.find().fetch();
+
+        var messages;
+        if (!block) block = '__default__';
+
+        messages = flashMessages.find({block: block}).fetch();
+
         $.each(messages, function(index, value) {
             value.group = value.message instanceof Array;
         });

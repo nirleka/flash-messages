@@ -1,5 +1,7 @@
 <template name="flashMessages">
-    {{#each messages}} {{> flashMessageItem}} {{/each}}
+    {{#each messages block}}
+        {{> flashMessageItem}}
+    {{/each}}
 </template>
 
 <template name="flashMessageItem">
